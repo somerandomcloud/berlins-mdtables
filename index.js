@@ -14,19 +14,8 @@ async function newTable(data, existtext) {
     data.forEach(entry => {
         let keys = Object.keys(entry)
 
-        // console.log(keys)
-
         possiblekeys = possiblekeys.concat(keys)
-
-        keys.forEach(key => {
-            if(entry[key]) entries += `| ${entry[key]}`
-            else entries += `| ${existtext | "undefined"}`
-        })
-
-        entries += `\|\n`
     })
-
-    console.log(entries)
 
     let uniquekeys = possiblekeys.filter((key, index) => {
         return possiblekeys.indexOf(key) === index
@@ -38,11 +27,20 @@ async function newTable(data, existtext) {
         tableheader = `${tableheader} | ${key}`
     })
 
+    data.forEach(entry => {
+        uniquekeys.forEach(key => {
+            if(entry[key]) entries += `| ${entry[key]}`
+            else entries += `| ${existtext | 'Nothing defined'}`
+        })
+        entries += `\|\n`
+    })
+
     tableheader += ' |'
 
     table = `${tableheader}\n${"|" + " - \|".repeat(uniquekeys.length)}`
 
     console.log(table)
+    console.log(entries)
 
     
 }
@@ -53,4 +51,4 @@ async function newReadme(template, data) {
 
 const data = fs.readFileSync(`${__dirname}/./data.json`, 'utf8')
 
-newTable(data)
+newTable(data, 'Nothing found!')
