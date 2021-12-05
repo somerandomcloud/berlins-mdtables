@@ -1,0 +1,19 @@
+{
+  "name": "berlins-mdtables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somerandomcloud/berlins-mdtables.git"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/somerandomcloud/berlins-mdtables/issues"
+  },
+  "homepage": "https://github.com/somerandomcloud/berlins-mdtables#readme"
+}
